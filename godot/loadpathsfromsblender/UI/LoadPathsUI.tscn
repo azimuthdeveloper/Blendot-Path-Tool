@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp84ixdha0an1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yuklp"]
+bg_color = Color(0.71203, 0.220104, 0.320602, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_kcljb"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="Theme" id="Theme_y03xt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ny62"]
+bg_color = Color(0, 0.717256, 0.380858, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(1, 1, 1, 0.6)
+
+[node name="LoadPathsUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Selected item: "
+
+[node name="selectedItem" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="debugLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="errorPanel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yuklp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/errorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/errorPanel/VBoxContainer"]
+layout_mode = 2
+text = "Can't import paths from this object."
+label_settings = SubResource("LabelSettings_kcljb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="errorMessage" type="Label" parent="VBoxContainer/errorPanel/VBoxContainer"]
+layout_mode = 2
+text = "error message"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="importPanel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_y03xt")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ny62")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/importPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 61.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/importPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="importButton" type="Button" parent="VBoxContainer/importPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load paths for selected .blend import"
+text_overrun_behavior = 3
+autowrap_mode = 1
+
+[node name="curveStats" type="Label" parent="VBoxContainer/importPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+autowrap_mode = 1
