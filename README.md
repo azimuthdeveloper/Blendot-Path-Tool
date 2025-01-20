@@ -14,3 +14,5 @@ The blender plugin hooks the save action in Blender, so when you save your .blen
 In order to use the path importer, you have to have an inherited scene from the .blend file. The plugin performs some error checking to work out if your selected item is actually able to have paths imported or not. I don't know GDScript either so if it's terrible don't judge again haha.
 
 I aim to improve this plugin so the path importing from Blender to Godot is much easier. You can help me work on this by donating here: https://ko-fi.com/stageplay.
+
+License: MIT. But if you use it commercially and you have a billion dollar game please donate something or else I will be very, very sad.
